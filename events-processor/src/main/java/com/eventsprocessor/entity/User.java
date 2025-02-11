@@ -4,34 +4,42 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import java.time.LocalDateTime;
 
 @Entity
-@Setter
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "user")
 public class User {
     @Id
     @Column(name = "user_id", nullable = false, unique = true)
-    private String userId;
-
-    @Column(name = "name", nullable = false)
-    private String name;
+    private Long userId;
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    public User() {
+    }
 
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
+    public User(Long userId, String email) {
+        this.userId = userId;
+        this.email = email;
+    }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public User orElseThrow(Object o) {
+        return null;
+    }
 }

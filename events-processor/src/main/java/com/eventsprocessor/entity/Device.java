@@ -1,22 +1,18 @@
 package com.eventsprocessor.entity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Setter
-@Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "device")
 public class Device {
     @Id
     @Column(name = "device_id", nullable = false, unique = true)
-    private String deviceId;
+    private Long deviceId;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
