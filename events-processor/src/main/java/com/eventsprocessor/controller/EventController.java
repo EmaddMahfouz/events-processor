@@ -30,7 +30,7 @@ public class EventController {
             }
 
             Event event = eventService.startApp(userID, deviceID);
-            return ResponseEntity.ok(event);
+            return ResponseEntity.ok(Map.of("message", "Event created successfully"));
         } catch (UserNotFoundException | DeviceNotFoundException e) {
             return ResponseEntity.status(404).body(Map.of("error", e.getMessage()));
         } catch (Exception e) {

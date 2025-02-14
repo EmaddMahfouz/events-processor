@@ -30,17 +30,10 @@ public class Event {
     @Column(name = "timestamp", nullable = false)
     private LocalDateTime timestamp;
 
+    @Column(name = "notified")
+    private boolean notified = false;
 
     public Event() {
-    }
-
-    public Event(Long eventId, User user, Device device, String eventType, LocalDateTime timestamp, Training training) {
-        this.eventId = eventId;
-        this.user = user;
-        this.device = device;
-        this.eventType = eventType;
-        this.timestamp = timestamp;
-        this.training = training;
     }
 
     public Long getEventId() {
@@ -89,5 +82,13 @@ public class Event {
 
     public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public boolean isNotified() {
+        return notified;
+    }
+
+    public void setNotified(boolean notified) {
+        this.notified = notified;
     }
 }
